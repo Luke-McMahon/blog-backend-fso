@@ -1,0 +1,34 @@
+{
+  "name": "blog-backend",
+  "version": "0.0.1",
+  "description": "https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luke-McMahon/blog-backend-fso.git"
+  },
+  "author": "Luke McMahon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Luke-McMahon/blog-backend-fso/issues"
+  },
+  "homepage": "https://github.com/Luke-McMahon/blog-backend-fso#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.22.0",
+    "nodemon": "^2.0.19"
+  }
+}

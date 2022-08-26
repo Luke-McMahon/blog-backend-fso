@@ -65,6 +65,34 @@ test("a valid blog can be added", async () => {
   expect(title).toContain("Test blog added");
 });
 
+test("likes default to zero when missing", async () => {
+  const blog = {
+    title: "Test blog added",
+    author: "Test blog",
+    url: "https://google.com",
+  };
+
+  await api
+    .post("/api/blogs")
+    .send(blog)
+    .expect(201)
+    .expect("Content-Type", /application\/json/);
+
+  const blogsAtEnd = await helper.blogsInDB();
+  const lastBlog = blogsAtEnd[blogsAtEnd.length - 1];
+
+  expect(lastBlog.likes).toBeDefined();
+});
+
+test("an invalid blog cannot be added", async () => {
+  const blog = {
+    author: "Test blog",
+    url: "https://google.com",
+  };
+
+  await api.post("/api/blogs").send(blog).expect(400);
+});
+
 afterAll(() => {
   mongoose.connection.close();
 });
